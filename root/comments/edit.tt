@@ -1,0 +1,7 @@
+[% META title = 'Edit Comment' -%]
+<form method="post" action="[% c.uri_for('update') %]">
+
+Body:<textarea name="body">[% comment.body %] </textarea><br>
+
+<input type="submit" name="Submit" value="Edit comment">
+</form>

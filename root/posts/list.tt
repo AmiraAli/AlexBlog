@@ -1,0 +1,17 @@
+<h1> All Posts </h1>
+<p><a href="[% c.uri_for(c.controller.action_for('form_new')) %]">Create Post</a> </p>
+<hr>
+[% FOREACH post IN posts -%]
+Title: [% post.title %]<br>
+Body: [% post.body %]<br>
+<a href="[% c.uri_for(c.controller.action_for('delete'), [post.id]) %]">Delete</a>
+<a href="[% c.uri_for(c.controller.action_for('edit'), [post.id]) %]">Edit</a>
+<a href="[% c.uri_for(c.controller.action_for('show'), [post.id]) %]">Show</a><br>
+<h2>Comments:</h2>
+[% FOREACH comment IN comments -%]
+[% IF comment.post_id == post.id%]
+Body:[% comment.body %]<br>
+[% END %]
+[% END -%]
+<hr>
+[% END -%]

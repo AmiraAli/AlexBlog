@@ -1,0 +1,7 @@
+[% META title = 'Edit Post' -%]
+<form method="post" action="[% c.uri_for(c.controller.action_for('update'), [post.id] )%]">
+Title:<input type="text" name="title" value=[% post.title %]><br>
+Body:<textarea name="body" > [% post.body %]</textarea><br>
+
+<input type="submit" name="Submit" value="Add Post">
+</form>

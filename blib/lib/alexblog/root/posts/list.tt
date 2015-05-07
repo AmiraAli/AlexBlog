@@ -1,0 +1,11 @@
+<h1> All Posts </h1>
+[% FOREACH post IN posts -%]
+Title: [% post.title %]<br>
+Body: [% post.body %]<br>
+<h2>Comments:</h2>
+[% FOREACH comment IN comments -%]
+Body:[% comment.body %]
+
+[% END -%]
+<hr>
+[% END -%]

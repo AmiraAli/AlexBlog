@@ -1,0 +1,21 @@
+<center><h1> [% post.title %]</h1></center>
+<h2> [% post.body %]</h2>
+<hr>
+<h3>Comments:</h3>
+
+[% FOREACH comment IN comments -%]
+<br>
+[% IF comment.post_id == post.id%]
+<br>
+Body:[% comment.body %]<br> 
+<a href="[% c.uri_for(c.controller('comments').action_for('delete'),[comment.id]) %]">Delete</a><br>
+<hr>
+[% END %]
+[% END -%]
+[% META title = 'New Comment' -%]
+<form method="post" action="[% c.uri_for(c.controller('comments').action_for('form_create')) %]" %]">
+<input type="hidden" name="postid" value=[% post.id%]>
+<input type="hidden" name="userid" value=[% c.user.id %]>
+Body:<textarea name="body"> </textarea><br>
+<input type="submit" name="Submit" value="Add comment">
+</form>
